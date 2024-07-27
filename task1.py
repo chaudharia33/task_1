@@ -6,17 +6,17 @@ import time
 from datetime import datetime, timedelta
 import logging
 
-# Set up logging
+# logger setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Constants
+# defined Constants
 N = 5000  # Number of JSON files to generate
 M = (50, 100)  # Range of random size for each JSON file
 K = (100, 200)  # Range of total cities
 L = (0.005, 0.001)  # Range of probability for NULL values
 
-# Generation phase
+# flight data generation phase 
 def generate_flights():
     logger.info("Generating flights data...")
     cities = [f"City {i}" for i in range(random.randint(*K))]
@@ -39,7 +39,7 @@ def generate_flights():
             json.dump(flights, f)
     logger.info("Flights data generated successfully!")
 
-# Analysis & Cleaning phase
+# flight data analysis & Cleaning phase
 def analyze_flights():
     logger.info("Analyzing flights data...")
     start_time = time.time()
